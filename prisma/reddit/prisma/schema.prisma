@@ -1,0 +1,14 @@
+generator photon {
+  provider = "photonjs"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://prisma:prisma@localhost:5432/postgres?schema=reddit_db"
+}
+
+model Item {
+  id            String      @default(cuid()) @id
+  title         String      @unique
+  createdAt     DateTime    @default(now())
+}
